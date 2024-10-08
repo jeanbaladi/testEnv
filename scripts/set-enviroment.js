@@ -5,7 +5,7 @@ const environmentProdFile = `export const environment = {
 };
 `;
 
-fs.writeFile('./src/environments/environment.prod.ts', environmentProdFile, function (err) {
+fs.writeFile('./src/environments/environment.ts', environmentProdFile, function (err) {
   if (err) {
     console.log(err);
   } else {
