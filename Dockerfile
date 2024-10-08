@@ -1,23 +1,24 @@
 # Etapa 1: Construcción de la aplicación Angular
 FROM node:16.20.1 AS build
 
-# Crear directorio de trabajo
 WORKDIR /app
 
-# Copiar package.json y package-lock.json
 COPY package*.json ./
-
-# Instalar dependencias
 RUN npm install
 
-# Copiar todo el código de la aplicación al directorio de trabajo
 COPY . .
-
-# Compilar la aplicación Angular
-RUN npm run prebuild
-RUN npm run build
+RUN npm run build -- --prod
 
 # Etapa 2: Servir la aplicación con Nginx
-FROM nginx
-COPY --from=node /app/dist/battleships /usr/share/nginx/html
-COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
+FROM nginx:alpine
+
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=build /app/dist/[nombre-de-tu-app] /usr/share/nginx/html
+
+# Copiar el archivo de configuración personalizado de Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
