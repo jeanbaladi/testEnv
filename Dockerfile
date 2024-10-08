@@ -2,6 +2,7 @@ FROM node:latest as node
 WORKDIR /app
 COPY ./ /app/
 RUN npm install
+RUN npm run prebuild
 RUN npm run build
 
 # stage 1, based on Nginx

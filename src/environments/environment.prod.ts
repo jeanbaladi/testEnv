@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'api_url not found'
+  API_URL: '...'
 };
