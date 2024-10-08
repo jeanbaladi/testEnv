@@ -1,7 +1,7 @@
 const fs = require('fs');
 const environmentProdFile = `export const environment = {
   production: true,
-  API_URL: '${process.env.API_URL || 'api_url not found'}'
+  API_URL: '${process.env.API_URL || 'api_url not found'}',
   envs: '${process.env}'
 };
 `;
