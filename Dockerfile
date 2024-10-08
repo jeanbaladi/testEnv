@@ -23,8 +23,10 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copiar la aplicación construida desde la etapa anterior
-COPY --from=build /app/dist/appTest /usr/share/nginx/html
-
-# Copiar el archivo de configuración de Nginx personalizado (si es necesario)
 # COPY nginx.conf /etc/nginx/nginx.conf
-COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
+
+# Exponer el puerto 80
+EXPOSE 80
+
+# Iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]
