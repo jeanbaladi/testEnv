@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  envs: '...',
   API_URL: 'URL de la api',
 };
 
