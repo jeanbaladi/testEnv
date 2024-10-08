@@ -3,12 +3,11 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
-  template: '<p>apiUrl: {{apiUrl}}</p><p>is production: {{isProd}}</p><p>env: {{envs | json}}</p><p>localEnvs: {{localEnvs}}</p>',
+  template: '<p>apiUrl: {{apiUrl}}</p><p>is production: {{isProd}}</p><p>env: {{envs | json}}</p>',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   apiUrl = environment.API_URL;
   isProd = environment.production;
   envs = environment.envs;
-  localEnvs = window.process;
 }
