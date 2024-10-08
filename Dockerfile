@@ -6,5 +6,5 @@ RUN npm run build
 
 # stage 1, based on Nginx
 FROM nginx
-COPY --from=node /app/dist/battleships /usr/share/nginx/html
+COPY --from=node /app/dist/appTest /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
