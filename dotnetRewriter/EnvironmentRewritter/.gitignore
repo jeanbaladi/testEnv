@@ -34,12 +34,15 @@ x64/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+/bin
+/obj
+
 *_i.c
 *_p.c
 *.ilk
 *.meta
-*.obj
 *.pch
+*.bin
 *.pdb
 *.pgc
 *.pgd
