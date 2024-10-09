@@ -4,10 +4,7 @@ COPY ./ /app/
 RUN npm install
 
 # ***********
-RUN cd ./scripts
-RUN npm install
-RUN node set-enviroment.js
-RUN cd ..
+RUN cd ./scripts && npm install && node set-enviroment.js
 # ***********
 
 RUN npm run build

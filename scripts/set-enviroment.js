@@ -10,21 +10,10 @@ const environmentProdFile = `export const environment = {
 
 console.log(process.env.API_URL);
 
-try {
-
-  fs.writeFile('../src/environments/environment.ts', environmentProdFile, function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Environment file generated successfully.');
-    }
-  });
-}catch(e) {
-  fs.writeFile('./src/environments/environment.ts', environmentProdFile, function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Environment file generated successfully.');
-    }
-  });
-}
+fs.writeFile('../src/environments/environment.ts', environmentProdFile, function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Environment file generated successfully.');
+  }
+});
