@@ -8,22 +8,8 @@ RUN npm install
 # RUN cd ./scripts && npm install && node set-enviroment.js
 # with dotnet
 # Etapa para el mini proyecto de .NET
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS dotnet-rewriter
-
 # Establecer el directorio de trabajo para el mini proyecto .NET
-WORKDIR /app/dotnetRewriter/EnvironmentRewritter
-
-# Copiar los archivos del mini proyecto .NET al contenedor
-COPY dotnetRewriter/EnvironmentRewritter ./
-
-# Restaurar paquetes NuGet
-RUN dotnet restore
-
-# Construir el proyecto .NET
-RUN dotnet build -c Release
-
-# Ejecutar el proyecto .NET para sobrescribir environment.ts
-CMD ["dotnet", "run"]
+RUN cd ./dotnetRewriter/EnvironmentRewritter && dotnet restore && dotnet build -c Release && dotnet run
 # ***********
 
 RUN npm run build

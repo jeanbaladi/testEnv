@@ -15,10 +15,10 @@ class Program
         }
 
         // Ruta del archivo environment.ts
-        string environmentFilePath = '../src/environments/environment.ts';
+        string environmentFilePath = "../../src/environments/environment.ts";
 
         // Crear o sobrescribir el contenido del archivo environment.ts
-        string content = $"export const environment = {{ production: true, API_URL: '{apiUrl}', envs: '{}'}};";
+        string content = $"export const environment = {{ production: true, API_URL: {apiUrl}', envs: '{{}}'}};";
 
         try
         {
