@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/appTest",
+            "outputPath": "dist/appTest",  
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -56,6 +56,35 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "production_cobo": {  
+              "outputPath": "dist/appTest-cobo",  
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           }
         },
@@ -67,6 +96,9 @@
           "configurations": {
             "production": {
               "browserTarget": "appTest:build:production"
+            },
+            "production_cobo": {  
+              "browserTarget": "appTest:build:production_cobo"
             }
           }
         },
@@ -115,10 +147,14 @@
           "configurations": {
             "production": {
               "devServerTarget": "appTest:serve:production"
+            },
+            "production_cobo": {  
+              "devServerTarget": "appTest:serve:production_cobo"
             }
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "appTest"
 }

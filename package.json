@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "setEnv": "node scripts/set-enviroment.js",
-    "build": "ng build",
+    "setEnvCobo": "node scripts/set-enviroment.js COBO",
+    "setEnv": "cd scripts && npm install && cd .. && node scripts/set-enviroment.js",
+    "build:prod": "npm run setEnv && ng build --configuration production",
+    "build:prod-cobo": "npm run setEnvCobo && ng build --configuration production_cobo",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
